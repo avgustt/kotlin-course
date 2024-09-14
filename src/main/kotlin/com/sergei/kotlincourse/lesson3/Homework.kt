@@ -38,7 +38,7 @@ val suppliersContact: String = "т. 555-555-555,е. bla@bla.com, условия 
 
 //Текущее состояние хакатона (статус):
 
-var status: String = "On process"
+var status: String = "не начат"
 
 //Список спонсоров:
 
@@ -50,7 +50,7 @@ var budget: Int = 900
 
 //Текущий уровень доступа к интернету:
 
-var internetOn: Boolean = true
+var internetOn: Int = 5
 
 //Информация о транспортировке оборудования, распределении ресурсов и
 // координации между различными командами поддержки:
@@ -62,7 +62,7 @@ val instruction: String = "Оборудование доставить" +
 
 //Количество команд:
 
-var quantityTeam: Int = 5
+var quantityTeam: Int = 3
 
 //Перечень задач:
 
@@ -73,24 +73,21 @@ var tasksList: String = "1. Спланировать" +
 
 //План эвакуации:
 
-const val evacuationPlan: String = "см. план эвакуации на стене. Свободу Дурову!"
+val evacuationPlan: String = "см. план эвакуации на стене. Свободу Дурову!"
 
 //Список доступного оборудования:
 
-var equipmentList: String = "Компьютер, микрофон, колонка"
+val equipmentList: String = "Компьютер, микрофон, колонка"
 
 //Список свободного оборудования:
 
-var equipmentFree: String = "Компьютер"
+var equipmentFree: String = "Компьютер, микрофон, колонка"
 
 //График питания участников (зависит от поставщика питания, определяемого за неделю до начала)
 
-var mealSchedule: String = ""
-    get() = field
-    set(value) {
-        if (value == "Horns") field = "10:00"
-        if (value == "Hooves") field = "11:00"
-    }
+val lazyMealSchedule: String by lazy {
+    ""
+}
 
 //План мероприятий на случай сбоев:
 
@@ -102,22 +99,26 @@ var juryList: String = "Первый, Второй"
 
 //Методы и процедуры для сбора отзывов от участников и гостей, включая анонимные опросы и интервью.
 
-var feedbackCheck: String = "анонимные опросы, интервью"
+private val lazyFeedbackCheck: String by lazy {
+    "анонимные вопросы + интервью"
+}
 
 //Политика конфиденциальности:
 
-var privacyPolicy: Boolean = true
+var privacyPolicy: String = "Здесь прописана политика конфиденциальности"
 
 //Приватные отзывы (фидбэк) участников и зрителей для анализа проблем:
 
-lateinit var feedback: String
+private val lazyFeedback: String by lazy {
+    "Приватные отзывы"
+}
 
 //Текущая температура в помещении:
 
 var temperatureIndoor: Int = 25
 
 //Мониторинг и анализ производительности сетевого оборудования и интернет-соединения:
-
+//творческий подход
 var monitoringNetwork: String = ""
     get() = field
     set(value) {
@@ -131,7 +132,7 @@ var lumensLevl: Int = 1100
 
 //Лог событий мероприятия
 
-var log: String = "bla, bla, bka"
+private var log: String = "bla, bla, bka"
 
 //Доступность медицинской помощи:
 
@@ -139,9 +140,8 @@ var ambulance: Double? = null
 
 //Планы и процедуры для обеспечения безопасности мероприятия,
 // включая планы эвакуации и протоколы чрезвычайных ситуаций:
-// ?МОЖНО ЛИ ПЛЮСОВАТЬ ПЕРЕМЕННЫЕ?
 
-var safety: String = "Бежать при пожаре" + evacuationPlan
+private var safety: String = "Бежать при пожаре" + evacuationPlan
 
 //Регистрационный номер мероприятия:
 
@@ -153,7 +153,7 @@ val dicebellMax: Int = 55
 
 //Индикатор превышения уровня шума в помещениях:
 //?хочется указать else строкой?
-
+//бул
 var dicebell: Int = 0
     get() = field
     set(value) {
@@ -227,6 +227,7 @@ val SpecialFeatures: String = "обеспечить пандус и работу
 //Общее настроение участников (определяется опросами):
 
 lateinit var moodFroze: String
+//val mood: String by lazy { "" }
 
 //Подробный план хакатона, включающий время и содержание каждого сегмента,
 // инициализируется непосредственно перед началом мероприятия.
