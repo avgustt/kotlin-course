@@ -1,33 +1,8 @@
 package com.sergei.kotlincourse.lesson3
 
-val name: String = "Alice"
-
-var age: Int = 30
-
-const val PI = 3.14
-
-lateinit var userInfo: String
-
-val lazyValue: String by lazy {
-    "Hello"
-}
-
-var speed: Double? = null
-
-var count: Int = 0
-    get() = field
-    set(value) {
-        if (value >= 0) field = value
-        else field = 100
-    }
-
-fun countUp() {
-    count = -1
-}
-
 //Название мероприятия:
 
-val eventName: String = "Exhibition"
+val eventName: String = "Hackathon"
 
 //Дата проведения:
 
@@ -59,7 +34,7 @@ var hackathonTime: Int = 2
 //Контактная информация и условия соглашений с поставщиками пищи,
 // оборудования и других услуг:
 
-val suppliersContact: String = "555-555-555 bla@bla.com"
+val suppliersContact: String = "т. 555-555-555,е. bla@bla.com, условия отличные!"
 
 //Текущее состояние хакатона (статус):
 
