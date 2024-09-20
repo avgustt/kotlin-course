@@ -14,7 +14,6 @@ fun main() {
     printAttenuation(100.0, 0.4)
 }
 
-
 fun printAttenuation(soundIntensity: Double, koef: Double?) {
     val attenuation = (soundIntensity * (koef ?: 0.5))
     println(attenuation)
@@ -27,16 +26,34 @@ fun printAttenuation(soundIntensity: Double, koef: Double?) {
 
 //Решение задачи 2:
 
-
 fun main() {
     PrintCargoCost(cargo = null)
     PrintCargoCost(cargo = 60.0)
-
 }
-
 
 fun PrintCargoCost(insurance: Double = 0.5, cargo: Double?) {
     val cost = (((insurance / 100.0) * (cargo ?: 50.0)) + (cargo ?: 50.0))
     println(cost)
 }
+
+//Контекст: Вы проводите метеорологические измерения. Одним из важных показателей является атмосферное давление,
+//которое должно быть зафиксировано. Лаборант приносит вам набор показателей, но по пути может что-нибудь потерять.
+//Задача - сообщить об ошибке в случае отсутствия показаний атмосферного давления.
+
+//Решение задачи 3:
+
+fun main() {
+    PrintAtmosphericPressure(atmosphericPressure = 740)
+    PrintAtmosphericPressure(atmosphericPressure = null)
+
+}
+
+fun PrintAtmosphericPressure(atmosphericPressure: Any?) {
+    val atmosphericPressure = (atmosphericPressure ?: "Error")
+    println(atmosphericPressure)
+}
+
+
+
+
 
