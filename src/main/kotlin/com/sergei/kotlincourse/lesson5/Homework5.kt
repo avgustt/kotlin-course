@@ -19,3 +19,24 @@ fun printAttenuation(soundIntensity: Double, koef: Double?) {
     val attenuation = (soundIntensity * (koef ?: 0.5))
     println(attenuation)
 }
+
+//Контекст: Клиент оплачивает доставку груза. К стоимости доставки добавляется страховка на груз,
+//которая составляет 0,5% от его стоимости. В случае, если стоимость не указана,
+//то берётся стандартная стоимость в $50
+//Задача: Рассчитать полную стоимость доставки.
+
+//Решение задачи 2:
+
+
+fun main() {
+    PrintCargoCost(cargo = null)
+    PrintCargoCost(cargo = 60.0)
+
+}
+
+
+fun PrintCargoCost(insurance: Double = 0.5, cargo: Double?) {
+    val cost = (((insurance / 100.0) * (cargo ?: 50.0)) + (cargo ?: 50.0))
+    println(cost)
+}
+
