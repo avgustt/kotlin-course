@@ -1,5 +1,14 @@
 package com.sergei.kotlincourse.lesson5
 
+fun main() {
+    printAttenuation(100.0, null)
+    printAttenuation(100.0, 0.4)
+    PrintCargoCost(cargo = null)
+    PrintCargoCost(cargo = 60.0)
+    PrintAtmosphericPressure(atmosphericPressure = 740)
+    PrintAtmosphericPressure(atmosphericPressure = null)
+}
+
 //Контекст: Вы изучаете физическое явление затухания звука в помещении.
 // У вас есть измеренное значение начальной интенсивности звука, но из-за ограничений оборудования данные
 // о коэффициенте затухания иногда могут быть неизвестны.
@@ -9,10 +18,7 @@ package com.sergei.kotlincourse.lesson5
 //
 //Решение задачи 1:
 
-fun main() {
-    printAttenuation(100.0, null)
-    printAttenuation(100.0, 0.4)
-}
+
 
 fun printAttenuation(soundIntensity: Double, koef: Double?) {
     val attenuation = (soundIntensity * (koef ?: 0.5))
@@ -26,10 +32,7 @@ fun printAttenuation(soundIntensity: Double, koef: Double?) {
 
 //Решение задачи 2:
 
-fun main() {
-    PrintCargoCost(cargo = null)
-    PrintCargoCost(cargo = 60.0)
-}
+
 
 fun PrintCargoCost(insurance: Double = 0.5, cargo: Double?) {
     val cost = (((insurance / 100.0) * (cargo ?: 50.0)) + (cargo ?: 50.0))
@@ -42,10 +45,7 @@ fun PrintCargoCost(insurance: Double = 0.5, cargo: Double?) {
 //
 //Решение задачи 3:
 
-fun main() {
-    PrintAtmosphericPressure(atmosphericPressure = 740)
-    PrintAtmosphericPressure(atmosphericPressure = null)
-}
+
 
 fun PrintAtmosphericPressure(atmosphericPressure: Any?) {
     val atmosphericPressure = (atmosphericPressure ?: "Error")
