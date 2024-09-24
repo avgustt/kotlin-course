@@ -89,14 +89,19 @@ fun calculationOfBonus(shopping: Int) : Int {
 val fileExtension: String = "xl"
 
 fun fileType(fileExtension: String) : String {
-    return if (fileExtension == "txt") {
-        "Текстовый документ"
-    } else if (fileExtension == "jpg") {
-        "Изображение"
-    } else if (fileExtension == "xl") {
-        "Таблица"
-    } else {
-        "Неизвестный тип"
+    return when (fileExtension) {
+        "txt" -> {
+            "Текстовый документ"
+        }
+        "jpg" -> {
+            "Изображение"
+        }
+        "xl" -> {
+            "Таблица"
+        }
+        else -> {
+            "Неизвестный тип"
+        }
     }
 }
 
@@ -127,14 +132,19 @@ fun conversion(temperature: Double, scale: String): String {
 val airTemperature: Int = 25
 
 fun recommends(airTemperature: Int) : String {
-    return if (airTemperature in -30 downTo -1) {
-        "куртка и шапка"
-    } else if (airTemperature in 0..14)  {
-        "ветровка"
-    } else if (airTemperature in 15..35)  {
-        "футболка и шорты"
-    } else {
-        "не выходить из дома"
+    return when (airTemperature) {
+        in -1 downTo -30 -> {
+            "куртка и шапка"
+        }
+        in 0..14 -> {
+            "ветровка"
+        }
+        in 15..35 -> {
+            "футболка и шорты"
+        }
+        else -> {
+            "не выходить из дома"
+        }
     }
 }
 
