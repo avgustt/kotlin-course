@@ -81,7 +81,7 @@ var doWhile = 1
 do {
     println("5, 4, 3, 2, 1")
     doWhile--;
-} while (doWhile == 2)
+    } while (doWhile == 2)
 
 //Создайте цикл do...while, который повторяется, пока счетчик меньше 10, начиная с 5.
 
