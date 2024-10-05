@@ -126,6 +126,7 @@ fun foundString (array: Array<String>, searchString: String) {
     println("Ничего не нашел")
 }
 
+//создал функцию cuntinue, как аналог main после последнего задания, что бы работа не прерывалась
 fun cuntinue() {
 
 //Работа со списками List
