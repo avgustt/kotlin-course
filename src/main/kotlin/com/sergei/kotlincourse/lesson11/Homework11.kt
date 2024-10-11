@@ -111,11 +111,9 @@ fun main() {
         2 to mutableSetOf<String>("44", "55", "66", "77")
     )
 
-    val setFor11: MutableSet<String>? = mutableMapWithSet[1]
+    mutableMapWithSet[2]?.add("99")
 
-    setFor11?.add("99")
-
-    println(setFor11)
+    println(mutableMapWithSet)
 
 //Задание 12: Поиск Элемента по Значению
 //Создай словарь, где ключами будут пары чисел.
