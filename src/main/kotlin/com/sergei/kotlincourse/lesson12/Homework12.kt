@@ -12,7 +12,7 @@ fun main () {
 
     println(processList(listOf("as", "aasdas", "as", "asdasd", "132", null, "45"))) // Задание 5
 
-    drawRectangle(5, 3) // Задание на оптимизацию функции
+    drawRectangle(5, -1) // Задание на оптимизацию функции
 
 }
 //Напишите сигнатуру функции, которая не принимает аргументов и не возвращает значения.
@@ -92,11 +92,14 @@ fun isEven(number: Int): Boolean {
 
 fun printNumbersUntil(n: Int) {
     if (n < 1) return
-    var number = 1
-    while (number <= n) {
-        println(number)
-        number++
-    }
+for (i in 1..n) {
+    println(i)
+}
+//    var number = 1
+//    while (number <= n) {
+//        println(number)
+//        number++
+//    }
 }
 
 //Задача 4:
@@ -104,9 +107,9 @@ fun printNumbersUntil(n: Int) {
 //списке. Если отрицательных чисел нет, функция должна вернуть null.
 
 fun findFirstNegative(list: List<Int>): Int? {
-    for (i in list.indices) {
-        if (list[i] < 0) {
-            return list[i]
+    for (i in list) {
+        if (i < 0) {
+            return i
         }
     }
     return null
@@ -116,11 +119,11 @@ fun findFirstNegative(list: List<Int>): Int? {
 //строку. Если встречается null значение, функция должна прекратить выполнение с помощью return без возврата значения.
 
 fun processList(list: List<String?>) {
-    for (i in list.indices) {
-        if (list[i] == null){
+    for (i in list) {
+        if (i == null){
             return
         }   else {
-            println((list[i]))
+            println(i)
         }
     }
 }
