@@ -164,14 +164,14 @@ fun main () {
 //Отфильтруйте словарь с результатами тестирования сервисов, оставив только те тесты,
 //которые не прошли успешно и содержат в названии “optional”.
 
-    val serviceResults = mapOf(
+    val serviceResults: Map<String, String> = mapOf(
         "optionalTest1" to "Failed",
         "mandatoryTest" to "Passed",
         "optionalFastTest" to "Failed",
         "optionalTest2" to "Passed"
     )
 
-    val serviceResultsFiltered = serviceResults
+    val serviceResultsFiltered: Map<String, String> = serviceResults
         .filterKeys { it.contains("optional") }
             .filterValues { it == "Failed" }
     println(serviceResultsFiltered)
