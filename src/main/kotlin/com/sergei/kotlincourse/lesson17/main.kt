@@ -66,8 +66,7 @@ fun main() {
     open class Aircraft(
         maxWeight: Int,
         passengerCapacity: Int,
-        serialNumber: String,
-        val flightAltitude: Int
+        serialNumber: String
     ) : Vehicle(maxWeight, passengerCapacity, serialNumber) {
 
         fun increaseAltitude(amount: Int) {
@@ -85,7 +84,7 @@ fun main() {
         passengerCapacity: Int,
         serialNumber: String,
         flightAltitude: Int
-    ) : Aircraft(maxWeight, passengerCapacity, serialNumber, flightAltitude)
+    ) : Aircraft(maxWeight, passengerCapacity, serialNumber)
 
     // Класс Вертолёт, наследующийся от Летательного аппарата
     class Helicopter(
@@ -93,5 +92,5 @@ fun main() {
         passengerCapacity: Int,
         serialNumber: String,
         flightAltitude: Int
-    ) : Aircraft(maxWeight, passengerCapacity, serialNumber,  )
+    ) : Aircraft(maxWeight, passengerCapacity, serialNumber)
 }
