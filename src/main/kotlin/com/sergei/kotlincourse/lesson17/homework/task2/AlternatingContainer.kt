@@ -1,11 +1,17 @@
 package com.sergei.kotlincourse.lesson17.homework.task2
+//Второй класс должен получать список строк и вставлять их в начало контейнера но поочерёдно с теми данными,
+//которые уже есть. То-есть, наш список должен появиться в контейнере по индексам 0, 2, 4 и так далее.
 
 class AlternatingContainer : Materials() {
     fun addMaterialsAlternating(newMaterials: List<String>) {
-        var index = 0 // Начальный индекс для вставки
-        newMaterials.forEach { it ->
-            addMaterialAt(it, index) // Используем addMaterialAt для вставки
-            index += 2 // Увеличиваем индекс для чередования
+        val firstList = extractMaterial()
+
+
+        val maxSize = maxOf(newMaterials.size, firstList.size)
+
+        for (i in 0 until maxSize) {
+            if (i < newMaterials.size) addMaterial(newMaterials[i])
+            if (i < firstList.size) addMaterial(firstList[i])
         }
     }
 }

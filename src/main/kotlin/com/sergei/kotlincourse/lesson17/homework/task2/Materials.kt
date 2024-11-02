@@ -1,8 +1,8 @@
 package com.sergei.kotlincourse.lesson17.homework.task2
 
-abstract class Materials() {
+abstract class Materials {
 
-    val materials = mutableListOf<String>()
+    private val materials = mutableListOf<String>()
 
     fun addMaterial(material: String) {
         materials.add(material)
@@ -19,7 +19,5 @@ abstract class Materials() {
             println("[$index]: $layer")
         }
     }
-
-    abstract fun addMaterialAt(material: String, index: Int)
 }
 
