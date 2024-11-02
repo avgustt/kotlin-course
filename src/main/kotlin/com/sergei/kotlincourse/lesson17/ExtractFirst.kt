@@ -1,7 +1,7 @@
 package com.sergei.kotlincourse.lesson17
 
-import com.sergei.kotlincourse.lesson17.homework.task2.Materials
-
+//import com.sergei.kotlincourse.lesson17.homework.task2.Materials
+//
 //class ExtractFirst (): Materials() {
 //    fun addMaterial (): String {
 //        val extracted = extractMaterial()
