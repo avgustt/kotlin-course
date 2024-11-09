@@ -1,4 +1,4 @@
-package com.sergei.kotlincourse.lesson20.homework.task_1
+package com.sergei.kotlincourse.lesson20.homework
 
 import java.io.InputStream
 
