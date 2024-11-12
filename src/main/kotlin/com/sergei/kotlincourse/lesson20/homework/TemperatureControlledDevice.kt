@@ -4,8 +4,8 @@ abstract class TemperatureControlledDevice(
     override val maxTemperature: Int
 ) : ProgrammableDevice(), TemperatureRegulatable, Openable {
 
-    protected var currentTemperature: Int = 0 // Доступен в дочерних классах
-    protected var isPoweredOn: Boolean = false  // Доступен в дочерних классах
+    protected var currentTemperature: Int = 0
+    protected var isPoweredOn: Boolean = false
     private var isOpen: Boolean = false
 
     override fun powerOn() {
