@@ -3,11 +3,11 @@ package com.sergei.kotlincourse.lesson20.homework
 abstract class PoweredDevice : Powerable {
 
     override fun powerOn() {
-        println("${this::class.simpleName} is now powered on.")
+        println("Включено")
     }
 
     override fun powerOff() {
-        println("${this::class.simpleName} is now powered off.")
+        println("Выключено")
     }
 
     abstract fun operate()
