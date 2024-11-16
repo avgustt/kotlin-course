@@ -5,7 +5,6 @@ fun main() {
 
     val student = Student("Ivan", 19, 3434)
 
-    student.getName()
 
 
 }
