@@ -1,4 +1,4 @@
-package com.sergei.kotlincourse.lesson22.homework.secondTask
+package com.sergei.kotlincourse.lesson22.homework.extensions
 
 //Задача 3: Переворот элементов пары
 //Реализуйте метод расширения revert для класса Pair, который меняет местами первый и второй элементы пары.

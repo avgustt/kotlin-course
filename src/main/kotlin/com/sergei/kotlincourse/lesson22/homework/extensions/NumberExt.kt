@@ -1,4 +1,4 @@
-package com.sergei.kotlincourse.lesson22.homework.thirdTask
+package com.sergei.kotlincourse.lesson22.homework.extensions
 
 import kotlin.math.absoluteValue
 
