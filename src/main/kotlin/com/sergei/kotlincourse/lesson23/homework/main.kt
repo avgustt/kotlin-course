@@ -78,7 +78,16 @@ fun main() {
 //Если приведение успешно, функция должна напечатать все строки из списка, если элемент не является строкой то вывести
 //предупреждение об этом. Если приведение неудачно, должно быть выведено сообщение об ошибке, не прерывая выполнение программы.
 
-    fun tryCastToListAndPrint(){
-
+    fun tryCastToListAndPrint(i: Any) {
+        (i as? List <*>)?.forEach {
+            val result = (it as? String) ?: "Элемент не является строкой"
+            println(result)
+        } ?: println("Не является списком")
     }
+
+
+    tryCastToListAndPrint(121)
+    tryCastToListAndPrint("asd")
+
+
 }
