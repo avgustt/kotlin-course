@@ -86,8 +86,8 @@ fun main() {
     }
 
 
-    tryCastToListAndPrint(121)
-    tryCastToListAndPrint("asd")
+    tryCastToListAndPrint(listOf("123", 1, "123", true))
+    tryCastToListAndPrint(3)
 
 
 }
