@@ -52,7 +52,7 @@ fun main() {
     }
 
     // Задание 3: Использование одного блока catch с when для всех ошибок
-    try {
+    try { //тут код который вызывает ошибку, срабатывает первая
         triggerNullPointerException()
         triggerArrayIndexOutOfBoundsException()
         triggerClassCastException()
