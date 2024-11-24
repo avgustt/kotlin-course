@@ -7,7 +7,7 @@ fun main() {
         val array = arrayOf(1, 2, 3)
         println(array[5])
     } catch (e: ArrayIndexOutOfBoundsException) {
-        println("Перехвачено ArrayIndexOutOfBoundsException: ${e.message}")
+        println("Перехвачено ArrayIndexOutOfBoundsException: ${e}")
         throw MyException(e)
     }
 }
