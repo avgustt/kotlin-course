@@ -1,6 +1,6 @@
 package com.sergei.kotlincourse.lesson25.homework
 
-import com.sergei.kotlincourse.lesson13.list
+
 
 
 //Задание 5. Создай функцию расширение списка чисел, которая будет возвращать список уникальных чисел (без дубликатов).
