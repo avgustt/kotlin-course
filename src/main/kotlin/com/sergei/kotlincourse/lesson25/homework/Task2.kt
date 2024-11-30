@@ -1,6 +1,5 @@
 package com.sergei.kotlincourse.lesson25.homework
 
-import com.sergei.kotlincourse.lesson13.list
 
 //Задание 2. Создай функцию, которая принимает список чисел и возвращает среднее арифметическое этого списка.
 //С помощью require проверь, что список не пустой.
