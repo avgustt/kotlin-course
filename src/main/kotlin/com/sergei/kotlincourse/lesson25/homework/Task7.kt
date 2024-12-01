@@ -1,5 +1,47 @@
 package com.sergei.kotlincourse.lesson25.homework
 
+//Задание 7. Создай функцию расширения словаря из списка и множества, которая принимает все известные тебе типы
+//(вспомни все что знаешь и под каждый тип создай аргумент) и возвращает строку. Функция должна распечатать все данные, которые тебе в ней доступны и вернуть конкатенацию всех данных которые ей доступны (порядок неважен). Конкатенация - это присоединение. Код должен быть отформатирован таким образом, чтобы легко читался.
+//По аналогии с предыдущим заданием выполни трансформации.
+
+//Обычная функция
+
+fun anonymousFunction (
+    map: Map<List<Any>, Set<Any>>,
+    intVal: Int,
+    stringVal: String,
+    booleanVal: Boolean,
+    doubleVal: Double,
+    charVal: Char,
+    listVal: List<Any>,
+    setVal: Set<Any>,
+    mapVal: Map<Any, Any>,
+    nullableVal: String?
+): String {
+    println("intVal: $intVal")
+    println("stringVal: $stringVal")
+    println("booleanVal: $booleanVal")
+    println("doubleVal: $doubleVal")
+    println("charVal: $charVal")
+    println("listVal: $listVal")
+    println("setVal: $setVal")
+    println("mapVal: $mapVal")
+    println("nullableVal: $nullableVal")
+    println("map: $map")
+
+    return intVal.toString() +
+            stringVal +
+            booleanVal.toString() +
+            doubleVal.toString() +
+            charVal.toString() +
+            listVal.toString() +
+            setVal.toString() +
+            mapVal.toString() +
+            (nullableVal ?: "null") +
+            map.toString()
+}
+
+
 // Анонимная функция
 val anonymousFunction = fun(
     map: Map<List<Any>, Set<Any>>,
