@@ -1,37 +1,44 @@
-package com.sergei.com.sergei.kotlincourse.com.sergei.kotlincourse.lesson26
+package com.sergei.kotlincourse.lesson26
+
+data class User(val name: String)
+
+fun processWebData(query: String,
+
+                   fetcher: (String) -> List<Map<String, Any>>,
+
+                   transformer: (List<Map<String, Any>>) -> List<User>,
+
+                   displayer: (List<User>) -> Unit) {
+
+    val rawData = fetcher(query)
+
+    val transformedData = transformer(rawData)
+
+    displayer(transformedData)
+}
+
 
 fun main() {
-    val increment = fun(a: Int): Int {
-        return a + 1
+
+    val fetcher: (String) -> List<Map<String, Any>> = {
+
+        // orm.select(it).map { listOf() }
+
+        listOf(mapOf("Andrey" to "5"))
     }
 
-    val findIndex = fun(text: String, word: String, ignoreCase: Boolean): Int {
-        return text.indexOf(word, 0, ignoreCase)
+    val transformer: (List<Map<String, Any>>) -> List<User> = {
+
+        it.map { map -> User(map.keys.first()) }
+
     }
 
+    val displayer: (List<User>) -> Unit = {
+
+        println(it)
+
+    }
+
+    processWebData("sql query", fetcher, transformer, displayer)
 }
-
-
-
-val increment = fun (a: Int): Int {
-    return a + 1
-}
-
-fun findIndex(text: String, word: String, ignoreCase: Boolean = false): Int {
-    return text.indexOf(word, 0, ignoreCase)
-}
-
-
-fun increment(a: Int): Int {
-    return a + 1
-}
-
-//val findIndex: (String, String, Boolean) -> Int = { text, word, ignoreCase ->
-//    text.indexOf(word, 0, ignoreCase)
-//}
-//
-//val findIndex = { text: String, word: String, ignoreCase: Boolean ->
-//    text.indexOf(word, 0, ignoreCase)
-//}
-
 
