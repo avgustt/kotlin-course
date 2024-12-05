@@ -41,4 +41,3 @@ fun main() {
 
     processWebData("sql query", fetcher, transformer, displayer)
 }
-
