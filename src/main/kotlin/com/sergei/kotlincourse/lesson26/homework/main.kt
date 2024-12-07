@@ -48,7 +48,35 @@ fun filterStrings(list: List<String>, funstion: (String) -> Boolean): List<Strin
 //10. Создайте функцию applyToNumbers, которая принимает список чисел и функцию, преобразующую каждое число в другое
 //число (те-есть принимающая число и возвращающая число). Функция должна вернуть результат преобразования исходного списка чисел.
 
+fun applyToNumbers(list: List<Number>, funstion: (Number) -> Number): List<Number> {
+    return list.map(funstion)
+}
 
+val elementary: (Number) -> Number = {
+    (it.toDouble() + 1).toInt()
+}
+
+//11. Реализуйте функцию sumByCondition, которая принимает список чисел и функцию, определяющую условие для включения числа в сумму.
+// Функция должна вернуть сумму чисел, прошедших проверку.
+
+fun sumByCondition (list: List<Int>, funstion11: (Int) -> Boolean): Int {
+    return list.filter { funstion11(it) }.sum()
+}
+
+val for11: (Int) -> Boolean = {
+    it > 0
+}
+
+//12Напишите функцию combineAndTransform, которая принимает две коллекции одного типа и функцию для их объединения и преобразования
+//в одну коллекцию другого типа. Функция должна вернуть результат преобразования (коллекцию второго типа)
+
+fun combineAndTransform(array1: Array<Int>, array2: Array<Int>, funstion12: (Int) -> String): Array<String>{
+    return (array1 + array2).map{funstion12(it)}.toTypedArray()
+}
+
+val for12: (Int) -> String = {
+    it.toString()
+}
 
 fun main() {
 
@@ -65,6 +93,33 @@ fun main() {
     val strings1 = listOf<String>("uno", "dos", "tres", "cuatro", "sinco")
     println(filterStrings(strings1) {it.length >= 4})
 
-    //
+    //реализация функции для задания 10
+
+    val numbers1 = listOf<Number>(1, 2, 3, 4, 5)
+    val numbers2 = listOf<Number>(10, -6, 14, 2345, 0, 0)
+
+    println(applyToNumbers(numbers1, elementary))
+    println(applyToNumbers(numbers2, elementary))
+
+    //реализация функции для задания 11
+
+
+    val numbers3 = listOf<Int>(10, -6, 14, -2345, 0, 0)
+    val numbers4 = listOf<Int>(1, -6, 14, 2, -55)
+
+    println(sumByCondition(numbers3, for11))
+    println(sumByCondition(numbers4, for11))
+
+
+    //реализация функции для задания 12
+
+    val array = arrayOf(10, -6, 14, -2345, 0, 0)
+    val arrea1 = arrayOf(1, -6, 14, 2, -55)
+
+    val array2 = arrayOf(0, 1, 2, 3)
+    val arrea3 = arrayOf(4, 5, 6, 7)
+
+    println(combineAndTransform(array, arrea1, for12).joinToString(", "))
+    println(combineAndTransform(array2, arrea3, for12).joinToString(", "))
 
 }
