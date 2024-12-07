@@ -1,5 +1,6 @@
 package com.sergei.kotlincourse.lesson27.homework
 
+import java.awt.AWTEventMulticaster.add
 import kotlin.apply
 
 //Задание 1. Функция высшего порядка.
@@ -35,20 +36,64 @@ val myFunction = {
 //Задание 2: Использование apply для инициализации объекта Employee
 //Создайте объект Employee и используйте apply для инициализации его полей email и department.
 
+val employee = Employee(
+    name = "Ivan",
+    age = 30,
+    position = "хорошая",
+).apply {
+    email = "e-mail"
+    department = "Главный"
+}
 
+//Задание 3: Использование also для логирования
+//Создайте функцию, принимающую объект Person и выводящую информацию об объекте в консоль в красивом,
+//отформатированном виде.
+//Создайте объект Person и используйте also для печати данных в консоль с помощью метода который
+//только что создали.
+
+val persona = Person(
+    name = "Fedor",
+    age = 60,
+).apply {
+    email = "телеграф@помолимся"
+}
+
+fun functiomFor3(obj: Person){
+    obj.also {
+        println("⋆༺\uD80C\uDDA9☠\uFE0E\uFE0E\uD80C\uDDAA༻⋆")
+        println("Нашему ${it.name} ${it.age} лет")
+        println("⋆༺\uD80C\uDDA9☠\uFE0E\uFE0E\uD80C\uDDAA༻⋆")
+        println("адрес его электронной почты: ${it.email}")
+        println("⋆༺\uD80C\uDDA9☠\uFE0E\uFE0E\uD80C\uDDAA༻⋆")
+        println("очень красиво получилось")
+    }
+}
+
+//Задание 4: Использование with для преобразование Person в Employee
+//Создайте объект класса Person. Используйте функцию with, чтобы создать из этого объекта Employee,
+//указав дополнительно должность. Возвращаемым значением должен быть новый объект Employee.
+
+val employee1 = with(persona) {
+    Employee(
+        name = this.name,
+        age = this.age,
+        position = "Developer"
+    ).apply {
+        email = "this@with"
+        department = "IT"
+    }
+}
 
 fun main() {
 
 //реализация 1 задания:
-
     val elapsedTime = timeTracker(myFunction)
     println(elapsedTime)
 
-//
+//реализация 3 задания:
+functiomFor3(persona)
 
-val employee = Employee.apply{
-
-}
-
+//проверяю создание 4 задания:
+println("Employee: ${employee1.name}, ${employee1.age}, ${employee1.email}, ${employee1.department}")
 
 }
