@@ -1,5 +1,7 @@
 package com.sergei.kotlincourse.lesson27.homework
 
+import kotlin.apply
+
 //Задание 1. Функция высшего порядка.
 //
 //Создайте функцию timeTracker, которая принимает другую функцию в качестве аргумента и измеряет
@@ -44,7 +46,9 @@ fun main() {
 
 //
 
-val employee = Employee("Ivan", 12, "устойчивая")
+val employee = Employee.apply{
+
+}
 
 
 }
