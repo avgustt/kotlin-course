@@ -40,7 +40,7 @@ enum class Space(val astronomicalUnitFromSun: Double, val massOfEarth: Double) {
 //в порядке возрастания длины названия enum.
 
 fun forTow() {
-    Housing.entries
+    Housing.values()
         .sortedBy { it.name.length }
         .forEach { println(it.nameOfThis) }
 }
@@ -69,7 +69,7 @@ fun funThree(action: () -> Unit): Test {
 //исключение если список пустой.
 
 fun forFor(filter: (Space) -> Boolean): Space {
-    return Space.entries.firstOrNull(filter) ?: throw Exception("Список планет пуст после фильтрации")
+    return Space.values().firstOrNull(filter) ?: throw Exception("Список планет пуст после фильтрации")
 }
 
 fun main() {
