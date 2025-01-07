@@ -42,5 +42,8 @@ class CerealStorageTest {
         assertEquals(0f, remaining, 0.01f) // добавили 5, осталась 0
         assertEquals(5f, cerealStorage.getAmount(Cereal.BUCKWHEAT), 0.01f) // в контейнере должно быть 5
     }
+
+
 }
+
 
