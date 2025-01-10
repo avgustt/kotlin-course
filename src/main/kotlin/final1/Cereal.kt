@@ -1,4 +1,4 @@
-package final1
+package ru.webrelab.kie.cerealstorage
 
 enum class Cereal(val local: String) {
     BUCKWHEAT("Гречка"),

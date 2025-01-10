@@ -17,6 +17,13 @@ class CerealStorageImpl(
     }
 
     private val storage = mutableMapOf<Cereal, Float>()
+    fun addCereal(
+        cereal: ru.webrelab.kie.cerealstorage.Cereal,
+        amount: Float,
+    ): Float {
+        TODO("Not yet implemented")
+    }
+
     override fun addCereal(
         cereal: Cereal,
         amount: Float,
@@ -36,6 +43,10 @@ class CerealStorageImpl(
     }
 
     override fun getAmount(cereal: Cereal): Float {
+        TODO("Not yet implemented")
+    }
+
+    fun getAmount(cereal: ru.webrelab.kie.cerealstorage.Cereal): Float {
         TODO("Not yet implemented")
     }
 

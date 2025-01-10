@@ -1,4 +1,6 @@
-package final1
+package ru.webrelab.kie.cerealstorage
+
+import final1.CerealStorage
 
 class CerealStorageImpl(
     override val containerCapacity: Float,
@@ -19,48 +21,77 @@ class CerealStorageImpl(
     }
 
     private val storage = mutableMapOf<Cereal, Float>()
+    private var currentStorageUsage = 0f
 
     override fun addCereal(cereal: Cereal, amount: Float): Float {
-        require(amount >= 0) { "Количество крупы не может быть отрицательным" }
+        require(amount >= 0) { "Количество не может быть отрицательным" }
 
-        val currentAmount = storage.getOrDefault(cereal, 0f)
-
-        if (currentAmount == 0f && storage.size >= (storageCapacity / containerCapacity).toInt()) {
-            throw IllegalStateException("Хранилище не позволяет разместить новый контейнер")
+        // Проверяем, есть ли место в хранилище
+        if (currentStorageUsage + containerCapacity > storageCapacity) {
+            throw IllegalStateException("Недостаточно места для нового контейнера")
         }
 
-        val spaceLeft = containerCapacity - currentAmount
-        val amountToAdd = minOf(spaceLeft, amount)
-
-        storage[cereal] = currentAmount + amountToAdd
-        return amount - amountToAdd
-    }
-
-    override fun getCereal(cereal: Cereal, amount: Float): Float {
-        require(amount >= 0) { "Количество крупы не может быть отрицательным" }
+        // Получаем текущее количество крупы в контейнере, если оно есть
         val currentAmount = storage.getOrDefault(cereal, 0f)
-        val amountToGet = minOf(currentAmount, amount)
-        storage[cereal] = currentAmount - amountToGet
-        return amountToGet
+
+        // Вычисляем, сколько еще можно добавить в контейнер
+        val remainingSpace = containerCapacity - currentAmount
+
+        if (amount <= remainingSpace) {
+            // Если все количество умещается в текущем контейнере
+            storage[cereal] = currentAmount + amount
+            return 0f
+        } else {
+            // Если часть не вмещается, добавляем в контейнер, и возвращаем оставшуюся крупу
+            storage[cereal] = containerCapacity
+            return amount - remainingSpace
+        }
     }
 
+    // Метод для получения крупы из контейнера
+    override fun getCereal(cereal: Cereal, amount: Float): Float {
+        require(amount >= 0) { "Количество не может быть отрицательным" }
+
+        // Получаем текущее количество крупы в контейнере
+        val currentAmount = storage.getOrDefault(cereal, 0f)
+
+        if (amount > currentAmount) {
+            // Если количество запрашиваемой крупы больше, чем есть в контейнере
+            storage[cereal] = 0f
+            return currentAmount
+        } else {
+            // Если запрашиваемое количество меньше или равно текущему
+            storage[cereal] = currentAmount - amount
+            return amount
+        }
+    }
+
+    // Метод для удаления пустого контейнера
     override fun removeContainer(cereal: Cereal): Boolean {
         val currentAmount = storage.getOrDefault(cereal, 0f)
-        if (currentAmount > 0) return false
-        storage.remove(cereal)
-        return true
+        return if (currentAmount == 0f) {
+            // Если контейнер пуст, удаляем его
+            storage.remove(cereal)
+            true
+        } else {
+            // Если контейнер не пуст, не удаляем
+            false
+        }
     }
 
+    // Метод для получения количества крупы в контейнере
     override fun getAmount(cereal: Cereal): Float {
         return storage.getOrDefault(cereal, 0f)
     }
 
+    // Метод для получения доступного места в контейнере для указанной крупы
     override fun getSpace(cereal: Cereal): Float {
-        return containerCapacity - storage.getOrDefault(cereal, 0f)
+        val currentAmount = storage.getOrDefault(cereal, 0f)
+        return containerCapacity - currentAmount
     }
 
+    // Текстовое представление хранилища
     override fun toString(): String {
-        return storage.entries.joinToString { "${it.key.local}: ${it.value}" }
+        return storage.entries.joinToString("\n") { "${it.key.local}: ${it.value}" }
     }
-
 }

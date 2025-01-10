@@ -1,5 +1,7 @@
 package final1
 
+import ru.webrelab.kie.cerealstorage.Cereal
+
 interface CerealStorage {
     /**
      * Объём одного контейнера
