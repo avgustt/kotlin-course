@@ -88,12 +88,12 @@ class CerealStorageImplTest {
 //Проверка на отрицательное значение при добавлении крупы
     @Test
     fun `throws IllegalArgumentException when adding negative amount of cereal`() {
-    val storage = CerealStorageImpl(10f, 50f)
-    val exception = assertThrows(IllegalArgumentException::class.java) {
-        storage.addCereal(Cereal.RICE, -5f)
-    }
-    // Исправляем сообщение на то, которое реально выбрасывается из кода:
-    assertEquals("Количество не может быть отрицательным", exception.message)
+        val storage = CerealStorageImpl(10f, 50f)
+        val exception = assertThrows(IllegalArgumentException::class.java) {
+            storage.addCereal(Cereal.RICE, -5f)
+        }
+        // Исправляем сообщение на то, которое реально выбрасывается из кода:
+        assertEquals("Количество не может быть отрицательным", exception.message)
 }
 
 //Проверка на уничтожение пустого контейнера
